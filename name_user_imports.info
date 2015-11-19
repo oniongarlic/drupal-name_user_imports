@@ -1,0 +1,12 @@
+name = Name Field User Import
+description = User import name field support
+dependencies[] = field
+dependencies[] = name
+dependencies[] = user_import
+package = Fields
+version = VERSION
+core = 7.x
+
+version = "7.x-0.1"
+project = "name_user_imports"
+

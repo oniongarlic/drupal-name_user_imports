@@ -1,34 +1,33 @@
 <?php
 
-// 'given', 'middle', 'family', 'title'
-
 function name_user_imports_user_import_field_validator()
 {
 }
 
 function name_user_imports_user_import_field_processor($user_fields, $field_name, $values)
 {
-dvm($user_fields);
-dvm($field_name);
-dvm($values);
 $field = $user_fields->$field_name;
-$raw=explode($values[0]);
+$raw=explode(' ', trim($values[0]), 3);
 $fcnt=count($raw);
+
+// 'given', 'middle', 'family', 'title'
 switch($fcnt) {
 	case 1:
 		$field[LANGUAGE_NONE][0]['given'] = $values[0];
 	break;
 	case 2: // Family Given
 		$field[LANGUAGE_NONE][0]['given'] = $raw[0];
-		$field[LANGUAGE_NONE][0]['faimly'] = $raw[1];
+		$field[LANGUAGE_NONE][0]['family'] = $raw[1];
 	break;
 	case 3: // Family Given Middle
-		$field[LANGUAGE_NONE][0]['faimly'] = $raw[0];
+		$field[LANGUAGE_NONE][0]['family'] = $raw[0];
 		$field[LANGUAGE_NONE][0]['given'] = $raw[1];
 		$field[LANGUAGE_NONE][0]['middle'] = $raw[2];
 	break;
 	default:
 }
+dvm($field);
+
 return $field;
 }
 

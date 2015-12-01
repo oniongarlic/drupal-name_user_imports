@@ -16,8 +16,8 @@ switch($fcnt) {
 		$field[LANGUAGE_NONE][0]['given'] = $values[0];
 	break;
 	case 2: // Family Given
-		$field[LANGUAGE_NONE][0]['given'] = $raw[0];
-		$field[LANGUAGE_NONE][0]['family'] = $raw[1];
+		$field[LANGUAGE_NONE][0]['family'] = $raw[0];
+		$field[LANGUAGE_NONE][0]['given'] = $raw[1];
 	break;
 	case 3: // Family Given Middle
 		$field[LANGUAGE_NONE][0]['family'] = $raw[0];
@@ -26,7 +26,6 @@ switch($fcnt) {
 	break;
 	default:
 }
-dvm($field);
 
 return $field;
 }
